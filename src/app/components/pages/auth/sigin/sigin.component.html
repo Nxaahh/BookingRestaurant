@@ -1,0 +1,39 @@
+<app-header></app-header>
+<form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control"
+      formControlName="email"
+      placeholder="Enter email" />
+    <small class="form-text text-danger" *ngIf="registroForm.get('email')?.touched && registroForm.get('email')?.invalid">
+      <span *ngIf="registroForm.get('email')?.errors?.['required']">Email is required.</span>
+      <span *ngIf="registroForm.get('email')?.errors?.['email']">Invalid email format.</span>
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      formControlName="password"
+      placeholder="Password" />
+    <small class="form-text text-danger" *ngIf="registroForm.get('password')?.touched && registroForm.get('password')?.invalid">
+      <span *ngIf="registroForm.get('password')?.errors?.['required']">Password is required.</span>
+      <span *ngIf="registroForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</span>
+    </small>
+  </div>
+
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="checkMe">
+    <label class="form-check-label" for="checkMe">Check me out</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary" >Submit</button>
+</form>
+
+<app-footer></app-footer>

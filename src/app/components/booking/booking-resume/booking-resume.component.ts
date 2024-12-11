@@ -1,30 +1,33 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Booking, BookingStatus } from '../../../models/booking.model';
 import { CommonModule } from '@angular/common';
 import { BookingService } from '../../../services/booking.service';
-import { Booking } from '../../../models/booking.model';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking-resume',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [CommonModule],
   templateUrl: './booking-resume.component.html',
   styleUrl: './booking-resume.component.css'
 })
 export class BookingResumeComponent implements OnInit{
-  bookings: Booking[]=[]
 
-  constructor(private bookingService: BookingService, private router: Router ){}
+
+  bookings: Booking[] = [];
+
+  constructor(private bookingService : BookingService, private routerService:Router){}
+
   ngOnInit(): void {
-      this.bookings=this.bookingService.getAllBookings()
+    this.bookings = this.bookingService.getAllBooking()
   }
 
-  eliminarReserva(id:number){
+  eliminarReserva(id: number) {
     this.bookingService.delete(id)
-  }
-  editarReserva(id:number){
-    this.router.navigate([`/edit/${id}`]);
-  }
+   }
 
+  editarReserva(id:number){
+    this.routerService.navigate([`/edit/${id}`]);
+  }
 
 }

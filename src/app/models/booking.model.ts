@@ -24,6 +24,7 @@ export class Booking {
         this.dateCreation = dateCreation;
         this.status = status
     }
+
     get getStatus(){
         return this.status == BookingStatus.CONFIRM ? "Confirmada" : "Pendiente";
     }
