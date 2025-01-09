@@ -1,13 +1,16 @@
-<div class="container bootstrap snippets bootdeys" style="margin-top:5%">
-<div class="row">
-  <div class="col-xs-12 col-sm-9">
-    <form class="form-horizontal">
-        <div class="panel panel-default">
-          <div class="panel-body text-center">
-           <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle profile-avatar" alt="User avatar">
-          </div>
-        </div>
-    </form>
+<div class="body">
+  <div class="container">
+    <h1>Perfil de Usuario</h1>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Nombre:</strong> {{person?.nombre}}</li>
+        <li class="list-group-item"><strong>Apellido:</strong> {{person?.apellido}}</li>
+        <li class="list-group-item"><strong>Email:</strong> {{person?.email}}</li>
+        <li class="list-group-item"><strong>Rol:</strong> {{person?.role}}</li>
+        <li class="list-group-item"><strong>Fecha de creación:</strong> {{person?.created_at}}</li>
+      </ul>
+    </div>
+    <button class="btn btn-primary mt-3">Editar Perfil</button>
   </div>
 </div>
-</div>
+

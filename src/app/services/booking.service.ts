@@ -1,6 +1,6 @@
-import { bootstrapApplication } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
 import { Booking, BookingStatus } from '../models/booking.model';
+import {Database, push, set} from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -85,5 +85,8 @@ export class BookingService {
       }
     }
   }
+
+
+
 
 }

@@ -1,5 +1,20 @@
 <app-header></app-header>
 <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input type="name" class="form-control" id="exampleName"  formControlName="name" placeholder="Name">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Surname</label>
+    <input type="surname" class="form-control" id="exampleSurname"  formControlName="surname" placeholder="Surname">
+  </div>
+
+
+
+
+
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Enter email"[ngClass]="{
@@ -12,16 +27,24 @@
     <small *ngIf="registroForm.get('email')?.errors?.['email']">El email debe tener un formato correcto</small> <br>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"  formControlName="password" placeholder="Password"
-           [ngClass]="{
+  <label for="exampleInputPassword1">Password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1"  formControlName="password" placeholder="Password"
+         [ngClass]="{
       'is-valid': registroForm.get('password')?.touched && registroForm.get('password')?.valid,
       'is-invalid': registroForm.get('password')?.touched && !registroForm.get('password')?.valid
     }">
-  </div>
+</div>
   <div class="invalid-feedback">
     <small *ngIf="registroForm.get('password')?.errors?.['required']">Debe indicar la password.</small> <br>
     <small *ngIf="registroForm.get('password')?.errors?.['minlength']">Debe tener minimo 6 caracteres</small> <br>
-  </div>>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Is admin?</label>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" >Submit</button>
 </form>
